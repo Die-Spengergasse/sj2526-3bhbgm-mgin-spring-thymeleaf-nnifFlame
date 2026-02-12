@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<html lang="de" xmlns:th="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Greeting</title>
+    <title>Bücherverwaltung – Start</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hero { 
+            margin-top: 80px; 
+            padding: 60px; 
+            background: white; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center; 
+        }
+        .hero h1 { color: #2c3e50; font-weight: 700; margin-bottom: 20px; }
+        .hero .lead { color: #7f8c8d; }
+        .hero .btn { margin: 15px; padding: 12px 30px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; }
+        .btn-primary { background-color: #3498db; border: none; }
+        .btn-primary:hover { background-color: #2980b9; transform: translateY(-2px); }
+        .btn-success { background-color: #2ecc71; border: none; }
+        .btn-success:hover { background-color: #27ae60; transform: translateY(-2px); }
+        .footer { margin-top: 40px; color: #bdc3c7; font-size: 0.9em; }
+    </style>
 </head>
 <body>
 <div class="container">
-    <h1>Hallo</h1>
-    Datum: <span th:text="${today}"></span>
-    <div>
-        <a href="/patient/list">patient list</a>
+    <div class="hero">
+        <h1>Bücherverwaltung</h1>
+        <p class="lead">Einfach Bücher erfassen und verwalten.</p>
+        <p>
+            <a href="/book/list" class="btn btn-primary btn-lg">Bücherliste ansehen</a>
+            <a href="/book/add" class="btn btn-success btn-lg">Neues Buch anlegen</a>
+        </p>
+        <p class="footer">Heute ist: <span th:text="${today}"></span></p>
     </div>
 </div>
 </body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Bücher</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1>Bücherverwaltung</h1>
+        <p class="lead">Verwalte deine Bücher: hinzufügen, ansehen, verwalten.</p>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titel</th>
+            <th>Autor</th>
+            <th>Genre</th>
+            <th>Erscheinungsdatum</th>
+            <th>Aktionen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="b : ${books}">
+            <td th:text="${b.id}"></td>
+            <td th:text="${b.name}"></td>
+            <td th:text="${b.author}"></td>
+            <td th:text="${b.genre != null ? b.genre.name : '-'}"></td>
+            <td th:text="${b.releaseDate}"></td>
+            <td>
+                <a th:href="@{'/book/edit/' + ${b.id}}" class="btn btn-primary btn-xs">Bearbeiten</a>
+                <a th:href="@{'/book/delete/' + ${b.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Sicher löschen?')">Löschen</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a href="/book/add" class="btn btn-success">Neues Buch</a>
+        <a href="/" class="btn btn-default">Zur Startseite</a>
+    </p>
+</div>
+</body>
+</html>

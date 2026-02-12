@@ -5,16 +5,27 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.time.LocalDate;
-
 @Entity
-public class Patient {
+public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String name;
-    private LocalDate birth;
+
+    public Genre() {}
+
+    public Genre(String name) {
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -22,13 +33,5 @@ public class Patient {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public LocalDate getBirth() {
-        return birth;
-    }
-
-    public void setBirth(LocalDate birth) {
-        this.birth = birth;
     }
 }
