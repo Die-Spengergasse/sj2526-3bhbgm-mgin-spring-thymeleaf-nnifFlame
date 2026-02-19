@@ -35,6 +35,18 @@ public class BookService {
         return genreRepository.findAll();
     }
 
+    public void saveGenre(Genre genre) {
+        genreRepository.save(genre);
+    }
+
+    public Genre getGenreById(Integer id) {
+        return genreRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid genre Id:" + id));
+    }
+
+    public void deleteGenreById(Integer id) {
+        genreRepository.deleteById(id);
+    }
+
     public void saveBook(Book book) {
         bookRepository.save(book);
     }
