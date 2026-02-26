@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+<!-- Formular um ein Buch neu anzulegen oder zu bearbeiten -->
 <div class="container">
     <h1 th:text="${book.id == null ? 'Neues Buch hinzufügen' : 'Buch bearbeiten'}">Neues Buch</h1>
+    <!-- Die Daten werden an den Controller geschickt, wenn man speichert -->
     <form th:action="@{/book/add}" th:object="${book}" method="post">
         <input type="hidden" th:field="*{id}">
         <div class="form-group">
@@ -20,6 +22,7 @@
         </div>
         <div class="form-group">
             <label for="genre">Genre</label>
+            <!-- Dropdown Menü um eine Kategorie auszuwählen -->
             <select id="genre" th:field="*{genre}" class="form-control" required>
                 <option value="">Wähle ein Genre...</option>
                 <option th:each="g : ${genres}" th:value="${g.id}" th:text="${g.name}"></option>

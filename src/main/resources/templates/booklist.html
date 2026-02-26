@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+<!-- Diese Seite zeigt die Liste aller Bücher in einer Tabelle an -->
 <div class="container">
     <div class="page-header">
         <h1>Bücherverwaltung</h1>
         <p class="lead">Verwalte deine Bücher: hinzufügen, ansehen, verwalten.</p>
     </div>
 
+    <!-- Die Tabelle, die jedes Buch aus der Datenbank auflistet -->
     <table class="table table-striped table-hover">
         <thead>
         <tr>
@@ -30,6 +32,7 @@
             <td th:text="${b.author}"></td>
             <td th:text="${b.genre != null ? b.genre.name : '-'}"></td>
             <td th:text="${b.releaseDate}"></td>
+            <!-- Knöpfe zum Bearbeiten oder Löschen eines Buches -->
             <td>
                 <a th:href="@{'/book/edit/' + ${b.id}}" class="btn btn-primary btn-xs">Bearbeiten</a>
                 <a th:href="@{'/book/delete/' + ${b.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Sicher löschen?')">Löschen</a>

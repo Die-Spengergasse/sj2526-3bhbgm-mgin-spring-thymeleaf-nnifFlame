@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+<!-- Formular um eine neue Kategorie hinzuzufügen -->
 <div class="container">
     <h1 th:text="${genre.id == null ? 'Neues Genre hinzufügen' : 'Genre bearbeiten'}">Neues Genre</h1>
     <form th:action="@{/genre/add}" th:object="${genre}" method="post">
+        <!-- Verstecktes Feld für die ID, wichtig beim Bearbeiten -->
         <input type="hidden" th:field="*{id}">
         <div class="form-group">
             <label for="name">Name</label>

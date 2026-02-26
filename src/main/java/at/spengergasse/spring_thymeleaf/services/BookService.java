@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class BookService {
+    //Schnittstellen zur Datenbank
     private final BookRepository bookRepository;
     private final GenreRepository genreRepository;
 
@@ -17,7 +18,7 @@ public class BookService {
         this.bookRepository = bookRepository;
         this.genreRepository = genreRepository;
         
-
+        // Wenn noch keine Genres da sind wird automatisch ein paar Standard-Genres ertstellt
         if (genreRepository.count() == 0) {
             genreRepository.save(new Genre("Roman"));
             genreRepository.save(new Genre("Sachbuch"));
@@ -27,34 +28,42 @@ public class BookService {
         }
     }
 
+    // Holt alle Bücher aus der Datenbank
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
+    // Holt alle Genres aus der Datenbank
     public List<Genre> getAllGenres() {
         return genreRepository.findAll();
     }
 
+    // Speichert ein Genre
     public void saveGenre(Genre genre) {
         genreRepository.save(genre);
     }
 
+    // Sucht ein Genre anhand seiner ID
     public Genre getGenreById(Integer id) {
-        return genreRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid genre Id:" + id));
+        return genreRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Ungültige Genre ID:" + id));
     }
 
+    // Löscht ein Genre
     public void deleteGenreById(Integer id) {
         genreRepository.deleteById(id);
     }
 
+    // Speichert ein Buch
     public void saveBook(Book book) {
         bookRepository.save(book);
     }
 
+    // Sucht ein Buch anhand seiner ID
     public Book getBookById(Integer id) {
-        return bookRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
+        return bookRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Ungültige Buch ID:" + id));
     }
 
+    // Löscht ein Buch
     public void deleteBookById(Integer id) {
         bookRepository.deleteById(id);
     }

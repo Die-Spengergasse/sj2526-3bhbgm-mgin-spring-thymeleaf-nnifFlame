@@ -5,14 +5,16 @@ import java.time.LocalDate;
 
 @Entity
 public class Book {
+    // Die Nummer des Buches (Primary Key)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
-    private String author;
-    private LocalDate releaseDate;
+    private String name; // Titel des Buches
+    private String author; // Autor
+    private LocalDate releaseDate; // erscheinungsdatum
 
+    // Jedes Buch gehört zu einem Genre
     @ManyToOne
     private Genre genre;
 

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+<!-- Hier werden alle Genres (Kategorien) angezeigt -->
 <div class="container">
     <div class="page-header">
         <h1>Genreverwaltung</h1>
@@ -24,6 +25,7 @@
         <tr th:each="g : ${genres}">
             <td th:text="${g.id}"></td>
             <td th:text="${g.name}"></td>
+            <!-- Knöpfe zum Bearbeiten oder Löschen einer Kategorie -->
             <td>
                 <a th:href="@{'/genre/edit/' + ${g.id}}" class="btn btn-primary btn-xs">Bearbeiten</a>
                 <a th:href="@{'/genre/delete/' + ${g.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Sicher löschen?')">Löschen</a>

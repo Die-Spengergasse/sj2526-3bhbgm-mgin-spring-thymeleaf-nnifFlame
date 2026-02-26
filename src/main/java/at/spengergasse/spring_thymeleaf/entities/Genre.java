@@ -7,11 +7,12 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Genre {
+    // Die Nummer des Genres
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    private String name; // Der Name der Kategorie
 
     public Genre() {}
 
