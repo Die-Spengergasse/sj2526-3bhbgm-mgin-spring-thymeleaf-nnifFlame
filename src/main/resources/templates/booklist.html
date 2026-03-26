@@ -31,7 +31,7 @@
             <td th:text="${b.name}"></td>
             <td th:text="${b.author}"></td>
             <td th:text="${b.genre != null ? b.genre.name : '-'}"></td>
-            <td th:text="${b.releaseDate}"></td>
+            <td th:text="${#temporals.format(b.releaseDate, 'dd.MM.yyyy')}"></td>
             <!-- Knöpfe zum Bearbeiten oder Löschen eines Buches -->
             <td>
                 <a th:href="@{'/book/edit/' + ${b.id}}" class="btn btn-primary btn-xs">Bearbeiten</a>

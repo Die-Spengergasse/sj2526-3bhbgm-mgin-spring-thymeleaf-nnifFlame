@@ -12,6 +12,7 @@ public class Book {
 
     private String name; // Titel des Buches
     private String author; // Autor
+    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE)
     private LocalDate releaseDate; // erscheinungsdatum
 
     // Jedes Buch gehört zu einem Genre
